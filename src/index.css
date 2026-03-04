@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* The Design Den palette */
+    --background: 40 20% 96%;
+    --foreground: 218 38% 10%;
+
+    --card: 40 20% 98%;
+    --card-foreground: 218 38% 10%;
+
+    --popover: 40 20% 98%;
+    --popover-foreground: 218 38% 10%;
+
+    --primary: 184 100% 26%;
+    --primary-foreground: 40 20% 98%;
+
+    --secondary: 37 42% 50%;
+    --secondary-foreground: 40 20% 98%;
+
+    --muted: 40 15% 90%;
+    --muted-foreground: 218 15% 45%;
+
+    --accent: 37 42% 50%;
+    --accent-foreground: 40 20% 98%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 40 15% 85%;
+    --input: 40 15% 85%;
+    --ring: 184 100% 26%;
+
+    --radius: 0.5rem;
+
+    /* Custom tokens */
+    --teal: 184 100% 26%;
+    --gold: 37 42% 50%;
+    --charcoal: 218 38% 10%;
+    --cream: 40 20% 96%;
+    --cream-dark: 40 15% 90%;
+
+    --font-display: 'Playfair Display', serif;
+    --font-body: 'DM Sans', sans-serif;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+  }
+}
+
+@layer components {
+  .section-padding {
+    @apply px-4 sm:px-6 lg:px-20 py-16 sm:py-20 lg:py-28;
+  }
+
+  .section-label {
+    @apply text-sm uppercase tracking-[0.2em] font-medium text-primary mb-3 inline-flex items-center gap-2;
+  }
+
+  .section-title {
+    @apply text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground leading-tight;
+    font-family: var(--font-display);
+  }
+
+  .gold-line {
+    @apply w-12 h-0.5 bg-secondary;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center gap-2 bg-primary text-primary-foreground px-8 py-4 font-medium text-sm uppercase tracking-wider transition-all duration-300 hover:bg-primary/90 hover:shadow-lg hover:shadow-primary/20;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center gap-2 border-2 border-secondary text-secondary px-8 py-4 font-medium text-sm uppercase tracking-wider transition-all duration-300 hover:bg-secondary hover:text-secondary-foreground;
+  }
+
+  .btn-whatsapp {
+    @apply fixed bottom-6 right-6 z-50 bg-[#25D366] text-primary-foreground w-14 h-14 rounded-full flex items-center justify-center shadow-xl hover:scale-110 transition-transform duration-300;
+  }
+}
+
+@layer utilities {
+  .text-gradient-gold {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, hsl(var(--gold)), hsl(37 55% 65%));
+  }
+
+  .overlay-dark {
+    @apply absolute inset-0 bg-foreground/60;
+  }
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: hsl(var(--cream));
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--teal));
+  border-radius: 4px;
+}
